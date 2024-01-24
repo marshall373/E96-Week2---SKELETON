@@ -47,6 +47,26 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    bool isflatten = false;
+    void OnPancaking()
+    {
+        if (isflatten == false)
+        {
+            Pancaking();
+            isflatten = true;
+        }
+        else
+        {
+            isflatten = false;
+        }
+
+    }
+
+    private void Pancaking()
+    {
+        transform.localScale = new Vector3(transform.localScale.x * 2, transform.localScale.y / 2, transform.localScale.z * 2);
+    }
+
     void OnMove(InputValue moveVal)
     {
         Vector2 direction = moveVal.Get<Vector2>();
